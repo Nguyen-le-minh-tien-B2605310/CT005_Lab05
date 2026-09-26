@@ -1,1 +1,1 @@
-# CT005_Lab05
+#### CT005 – Lab05 – Nguyễn Lê Minh Tiến – B2605310 – Lớp DI26D1A1

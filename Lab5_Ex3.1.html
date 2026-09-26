@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="vi">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta name="description" content="Trang giới thiệu thông tin cá nhân và các sản phẩm học tập của Nguyễn Lê Minh Tiến.">
+
+	<title>Nguyễn Lê Minh Tiến | Hồ sơ học tập</title>
+
+	<style>
+		:root {
+			--blue: #005baa;
+			--dark-blue: #003b73;
+			--light-blue: #eaf4ff;
+			--soft-blue: #f5f9fd;
+			--border: #d5e5f3;
+			--text: #18324a;
+			--muted: #60758a;
+			--white: #ffffff;
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		html {
+			scroll-behavior: smooth;
+		}
+
+		body {
+			margin: 0;
+			color: var(--text);
+			background: linear-gradient(
+				180deg,
+				#edf7ff 0,
+				#ffffff 380px,
+				#f6faff 100%
+			);
+			font-family: "Segoe UI", Roboto, Arial, sans-serif;
+			line-height: 1.65;
+		}
+
+		.site-header {
+			background: linear-gradient(135deg, var(--dark-blue), var(--blue));
+			color: var(--white);
+			border-bottom: 5px solid #8bc4f2;
+			box-shadow: 0 4px 18px rgba(0, 59, 115, .18);
+		}
+
+		.header-inner {
+			width: min(100% - 2rem, 1100px);
+			min-height: 78px;
+			margin: auto;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 1rem;
+		}
+
+		.brand {
+			display: flex;
+			align-items: center;
+			gap: .9rem;
+		}
+
+		.brand-mark {
+			width: 46px;
+			height: 46px;
+			display: grid;
+			place-items: center;
+			border: 2px solid rgba(255, 255, 255, .85);
+			border-radius: 50%;
+			font-size: .9rem;
+			font-weight: 800;
+			letter-spacing: .04em;
+		}
+
+		.brand-text strong {
+			display: block;
+			font-size: 1rem;
+			letter-spacing: .03em;
+		}
+
+		.brand-text span {
+			display: block;
+			font-size: .76rem;
+			opacity: .85;
+		}
+
+		.header-label {
+			font-size: .82rem;
+			font-weight: 600;
+			opacity: .9;
+		}
+
+		.page {
+			width: min(100% - 2rem, 1100px);
+			margin: 0 auto;
+			padding: 3.5rem 0 2rem;
+		}
+
+		.profile {
+			position: relative;
+			display: grid;
+			grid-template-columns: minmax(0, 1.5fr) minmax(260px, .8fr);
+			gap: 2.5rem;
+			align-items: center;
+			margin-bottom: 3.5rem;
+			padding: clamp(2rem, 5vw, 3.5rem);
+			background: var(--white);
+			border: 1px solid var(--border);
+			border-radius: 14px;
+			box-shadow: 0 15px 45px rgba(0, 59, 115, .09);
+			overflow: hidden;
+		}
+
+		.profile::before {
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			width: 7px;
+			background: var(--blue);
+		}
+
+		.profile-kicker {
+			margin: 0 0 .7rem;
+			color: var(--blue);
+			font-size: .78rem;
+			font-weight: 800;
+			letter-spacing: .12em;
+			text-transform: uppercase;
+		}
+
+		.profile-summary {
+			max-width: 650px;
+			margin: 0;
+			color: var(--muted);
+			font-size: 1.04rem;
+		}
+
+		.profile-details {
+			display: grid;
+			gap: .8rem;
+			margin: 0;
+		}
+
+		.profile-details div {
+			padding: .85rem 1rem;
+			background: var(--soft-blue);
+			border: 1px solid var(--border);
+			border-left: 4px solid var(--blue);
+			border-radius: 7px;
+		}
+
+		.profile-details dt {
+			margin-bottom: .1rem;
+			color: var(--muted);
+			font-size: .72rem;
+			font-weight: 700;
+			letter-spacing: .08em;
+			text-transform: uppercase;
+		}
+
+		.profile-details dd {
+			margin: 0;
+			color: var(--dark-blue);
+			font-weight: 700;
+		}
+
+		.intro {
+			max-width: 780px;
+			margin: 0 auto 3rem;
+			text-align: center;
+		}
+
+		.eyebrow {
+			display: inline-flex;
+			align-items: center;
+			gap: .65rem;
+			margin: 0 0 .7rem;
+			color: var(--blue);
+			font-size: .76rem;
+			font-weight: 800;
+			letter-spacing: .13em;
+			text-transform: uppercase;
+		}
+
+		.eyebrow::before,
+		.eyebrow::after {
+			content: "";
+			width: 28px;
+			height: 2px;
+			background: var(--blue);
+		}
+
+		.intro h2 {
+			margin: 0 0 .8rem;
+			color: var(--dark-blue);
+			font-family: Georgia, "Times New Roman", serif;
+			font-size: clamp(1.8rem, 4vw, 2.4rem);
+			line-height: 1.25;
+		}
+
+		.description {
+			max-width: 650px;
+			margin: auto;
+			color: var(--muted);
+			font-size: 1rem;
+		}
+
+		.section {
+			margin-bottom: 3.5rem;
+		}
+
+		.section-heading {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 1rem;
+			margin-bottom: 1rem;
+			padding-bottom: .75rem;
+			border-bottom: 2px solid var(--border);
+		}
+
+		.section-title {
+			display: flex;
+			align-items: center;
+			gap: .7rem;
+		}
+
+		.section-number {
+			width: 32px;
+			height: 32px;
+			display: grid;
+			place-items: center;
+			border-radius: 6px;
+			background: var(--blue);
+			color: var(--white);
+			font-size: .78rem;
+			font-weight: 800;
+		}
+
+		.section-heading h2 {
+			margin: 0;
+			color: var(--dark-blue);
+			font-family: Georgia, "Times New Roman", serif;
+			font-size: clamp(1.35rem, 3vw, 1.75rem);
+		}
+
+		.section-label {
+			color: var(--muted);
+			font-size: .78rem;
+			font-weight: 700;
+			letter-spacing: .05em;
+			text-transform: uppercase;
+		}
+
+		.content-box {
+			background: var(--white);
+			border: 1px solid var(--border);
+			border-radius: 10px;
+			box-shadow: 0 12px 35px rgba(0, 59, 115, .07);
+			overflow: hidden;
+		}
+
+		.pdf-frame {
+			display: block;
+			width: 100%;
+			height: min(72vh, 720px);
+			border: 0;
+			background: var(--white);
+		}
+
+		.pdf-fallback {
+			padding: 1.2rem;
+			color: var(--muted);
+		}
+
+		.pdf-fallback a,
+		footer a {
+			color: var(--blue);
+			font-weight: 700;
+		}
+
+		.infographic {
+			margin: 0;
+			padding: 1rem;
+			background: var(--white);
+			border: 1px solid var(--border);
+			border-radius: 10px;
+			box-shadow: 0 12px 35px rgba(0, 59, 115, .07);
+		}
+
+		.infographic img {
+			display: block;
+			width: 100%;
+			height: auto;
+			border-radius: 6px;
+		}
+
+		.video-frame {
+			position: relative;
+			width: 100%;
+			aspect-ratio: 16 / 9;
+			overflow: hidden;
+			background: #062b50;
+			border: 1px solid var(--border);
+			border-radius: 10px;
+			box-shadow: 0 12px 35px rgba(0, 59, 115, .1);
+		}
+
+		.video-frame iframe {
+			position: absolute;
+			inset: 0;
+			width: 100%;
+			height: 100%;
+			border: 0;
+		}
+
+		footer {
+			margin-top: 4rem;
+			padding: 1.5rem 0 1rem;
+			border-top: 2px solid var(--border);
+			color: var(--muted);
+			font-size: .82rem;
+		}
+
+		footer p {
+			margin: 0 0 .35rem;
+		}
+
+		footer strong {
+			color: var(--dark-blue);
+		}
+
+		.profile,
+		.intro,
+		.section {
+			animation: arrive .6s ease-out both;
+		}
+
+		.intro {
+			animation-delay: .08s;
+		}
+
+		.section:nth-of-type(1) {
+			animation-delay: .14s;
+		}
+
+		.section:nth-of-type(2) {
+			animation-delay: .2s;
+		}
+
+		.section:nth-of-type(3) {
+			animation-delay: .26s;
+		}
+
+		@keyframes arrive {
+			from {
+				opacity: 0;
+				transform: translateY(12px);
+			}
+
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			*,
+			*::before,
+			*::after {
+				animation: none !important;
+				scroll-behavior: auto !important;
+			}
+		}
+
+		@media (max-width: 720px) {
+			.header-inner {
+				min-height: 68px;
+			}
+
+			.header-label {
+				display: none;
+			}
+
+			.profile {
+				grid-template-columns: 1fr;
+				gap: 1.5rem;
+				padding: 2rem 1.5rem;
+			}
+
+			.profile h1 {
+				font-size: 2.3rem;
+			}
+
+			.section-heading {
+				align-items: flex-start;
+				flex-direction: column;
+				gap: .35rem;
+			}
+
+			.section-label {
+				margin-left: 42px;
+			}
+		}
+
+		@media (max-width: 480px) {
+			.page {
+				width: min(100% - 1rem, 1100px);
+				padding-top: 1.5rem;
+			}
+
+			.brand-text span {
+				display: none;
+			}
+
+			.brand-mark {
+				width: 40px;
+				height: 40px;
+			}
+
+			.profile {
+				border-radius: 10px;
+			}
+
+			.profile h1 {
+				font-size: 2rem;
+			}
+
+			.infographic {
+				padding: .5rem;
+			}
+		}
+		
+	</style>
+</head>
+
+<body>
+
+	<header class="site-header">
+		<div class="header-inner">
+			<div class="brand">
+				<div class="brand-mark">CTU</div>
+				<div class="brand-text">
+					<strong>HỒ SƠ HỌC TẬP</strong>
+					<span>Đại học Cần Thơ</span>
+				</div>
+			</div>
+
+			<div class="header-label">
+				Sản phẩm học tập số
+			</div>
+		</div>
+	</header>
+
+	<main class="page">
+
+		<header class="profile">
+			<div>
+				<p class="profile-kicker">Trang giới thiệu cá nhân</p>
+
+				<h1><span>Nguyễn Lê Minh Tiến</span></h1>
+
+				<p class="profile-summary">
+					Sinh viên DI26D1A1 yêu thích học tập chủ động,
+					thiết kế nội dung trực quan và chia sẻ kiến thức
+					qua các sản phẩm số.
+				</p>
+			</div>
+
+			<dl class="profile-details">
+				<div>
+					<dt>Mã sinh viên</dt>
+					<dd>B2605310</dd>
+				</div>
+
+				<div>
+					<dt>Lớp</dt>
+					<dd>DI26D1A1</dd>
+				</div>
+
+				<div>
+					<dt>Chủ đề</dt>
+					<dd>Kỹ năng công nghệ số</dd>
+				</div>
+			</dl>
+		</header>
+
+		<section class="intro" aria-labelledby="intro-title">
+			<p class="eyebrow">Bộ sản phẩm học tập</p>
+
+			<h2 id="intro-title">
+				Học tập cộng tác qua ba định dạng
+			</h2>
+
+			<p class="description">
+				Khám phá nội dung về lợi ích của công tác nhóm học tập
+				qua tài liệu PDF, infographic và video YouTube.
+			</p>
+		</section>
+
+		<section class="section" aria-labelledby="pdf-title">
+			<div class="section-heading">
+				<div class="section-title">
+					<span class="section-number">01</span>
+					<h2 id="pdf-title">Tài liệu PDF</h2>
+				</div>
+
+				<span class="section-label">
+					Tài liệu học tập
+				</span>
+			</div>
+
+			<div class="content-box">
+				<object
+					class="pdf-frame"
+					data="Lab05_Ex1.1.pdf"
+					type="application/pdf"
+					aria-label="Tài liệu PDF về lợi ích của công tác nhóm học tập">
+
+					<p class="pdf-fallback">
+						Trình duyệt không hỗ trợ xem PDF trực tiếp.
+						<a href="Lab05_Ex1.1.pdf">
+							Mở tài liệu PDF
+						</a>.
+					</p>
+				</object>
+			</div>
+		</section>
+
+		<section class="section" aria-labelledby="infographic-title">
+			<div class="section-heading">
+				<div class="section-title">
+					<span class="section-number">02</span>
+					<h2 id="infographic-title">Infographic</h2>
+				</div>
+
+				<span class="section-label">
+					Nội dung trực quan
+				</span>
+			</div>
+
+			<figure class="infographic">
+				<img
+					src="Lab05_Ex2.1.png"
+					alt="Infographic về lợi ích của công tác nhóm học tập: tiếp cận kiến thức linh hoạt, học tập tương tác, cá nhân hóa tiến độ và kết nối với cộng đồng"
+					loading="lazy">
+			</figure>
+		</section>
+
+		<section class="section" aria-labelledby="video-title">
+			<div class="section-heading">
+				<div class="section-title">
+					<span class="section-number">03</span>
+					<h2 id="video-title">Video Nhiệm vụ 2.2</h2>
+				</div>
+
+				<span class="section-label">
+					YouTube
+				</span>
+			</div>
+
+			<div class="video-frame">
+				<iframe
+					src="https://www.youtube.com/embed/FgVCz51VRV8"
+					title="Video về lợi ích của công tác nhóm học tập"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+					allowfullscreen>
+				</iframe>
+			</div>
+		</section>
+
+		<footer>
+			<p>
+				<strong>Ghi chú bản quyền:</strong>
+				Infographic được tạo bằng Canva AI,
+				hình ảnh từ Unsplash (CC0).
+				Video YouTube thuộc quyền của chủ sở hữu tương ứng.
+			</p>
+
+			<p>
+				Nguồn video:
+				<a
+					href="https://youtu.be/FgVCz51VRV8"
+					target="_blank"
+					rel="noopener">
+					YouTube
+				</a>.
+			</p>
+		</footer>
+
+	</main>
+
+</body>
+</html>
